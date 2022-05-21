@@ -20,17 +20,21 @@ class Product extends Component {
 
     componentDidMount() {
         console.log("Me monte!");
-        this.apiCall("http://localhost:3080/api/products", this.mostrarProduct)
+        this.apiCall("https://api.bluelytics.com.ar/v2/latest", this.mostrarProduct)
        
     }
 
-    mostrarProduct = (data) => {
-        console.log(data);
-    }
+    mostrarProduct = (oficial) => {
 
-    componentDidUpdate() {
-        console.log("Me actualice!");
-    }
+
+        this.setState(
+            {
+            product: oficial.blue.value_avg
+    })
+}
+
+
+    
 
     render() {
         console.log("Estoy renderizado");
@@ -38,18 +42,27 @@ class Product extends Component {
         let contenido;
 
         if (this.state.product === "") {
-            contenido = <p>Cargando...</p>
+            contenido = <p>Cargando1...</p>
         } else {
-            contenido = <img src={this.state.product}></img>
+            console.log(this.state.product);
+            contenido = <p src={this.state.product}></p>
         }
 
 
         return(
             <div>
-                {contenido}
+                {this.state.product}
             </div>
         );
     }
+
+    componentDidUpdate() {
+        console.log("Me actualice!");
+    }
+
 }
+
+    
+
 
 export default Product;
