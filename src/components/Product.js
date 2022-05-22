@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class Product extends Component {
     constructor(props){
@@ -20,16 +20,16 @@ class Product extends Component {
 
     componentDidMount() {
         console.log("Me monte!");
-        this.apiCall("https://api.bluelytics.com.ar/v2/latest", this.mostrarProduct)
+        this.apiCall("https://api.coinbase.com/v2/prices/spot?currency=USD", this.mostrarProduct)
        
     }
 
-    mostrarProduct = (oficial) => {
-
+    mostrarProduct = (data) => {
+       
 
         this.setState(
             {
-            product: oficial.blue.value_avg
+            product: data.data.amount
     })
 }
 
