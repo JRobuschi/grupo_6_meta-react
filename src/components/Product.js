@@ -1,5 +1,6 @@
 import React, {Component} from "react";
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import {useState} from 'react';
 
 class Product extends Component {
     constructor(props){
@@ -20,16 +21,19 @@ class Product extends Component {
 
     componentDidMount() {
         console.log("Me monte!");
-        this.apiCall("https://api.bluelytics.com.ar/v2/latest", this.mostrarProduct)
+        this.apiCall("http://localhost:3080/api/users", this.mostrarProduct)
        
     }
 
-    mostrarProduct = (oficial) => {
-
+    mostrarProduct = (response) => {
+       console.log(response.data)
 
         this.setState(
             {
-            product: oficial.blue.value_avg
+            product: response.data[0].idUser,
+                    
+           // response.forEach(element => console.log(element))
+            
     })
 }
 
