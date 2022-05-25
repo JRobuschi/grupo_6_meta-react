@@ -16,7 +16,7 @@ class Product extends React.Component{
     }
 
     async componentDidMount() {
-        console.log('estoy1')
+        
         const respuestaDesdeServer = await fetch('http://localhost:3080/api/products');
       const respuestaParseada = await (respuestaDesdeServer.json());
       this.setState(
@@ -28,9 +28,7 @@ class Product extends React.Component{
 
     }
   
-    componentWillUnmount(){
-        console.log("me estoy renderizando")
-    }
+    
 
 
     render(){
@@ -45,7 +43,7 @@ class Product extends React.Component{
                         </div>
                         <div className="card-body">
                             <div className="row">
-                                <h4>Total: {this.state.total}</h4>
+                                <h4>Total de productos: {this.state.total}</h4>
                                 
                                 <h4>Name</h4>
                                 {this.state.genres.map((genre,index)=>{

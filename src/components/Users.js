@@ -16,7 +16,6 @@ class Users extends React.Component{
     }
 
     async componentDidMount() {
-        console.log('estoy1')
         const respuestaDesdeServer = await fetch('http://localhost:3080/api/users');
       const respuestaParseada = await (respuestaDesdeServer.json());
       this.setState(
@@ -28,9 +27,7 @@ class Users extends React.Component{
 
     }
   
-    componentWillUnmount(){
-        console.log("me estoy renderizando")
-    }
+    
 
 
     render(){
@@ -45,20 +42,20 @@ class Users extends React.Component{
                         </div>
                         <div className="card-body">
                             <div className="row">
-                                <h4>Total: {this.state.total}</h4>
+                                <h4>Total de usuarios: {this.state.total}</h4>
                                 
                                 
-                                <h4>Name</h4>
+                                <h4>Id</h4>
                                 {this.state.user.map((genre,index)=>{
                                         return  <Genre  genre={genre.idUser} key={index} />;
                                     })
                                 }
-                                <h4>Price</h4>
+                                <h4>Nombre</h4>
                                 {this.state.user.map((genre,index)=>{
                                         return  <Genre  genre={genre.nombre} key={index} />;
                                     })
                                 }
-                                <h4>Description</h4>
+                                <h4>Apellido</h4>
                                 {this.state.user.map((genre,index)=>{
                                         return  <Genre  genre={genre.apellido} key={index} />;
                                     })
