@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-//import ContentCard from "../contentCard/contentCard";
+import ContentCard from "./contentCard";
 
 
 const PRODUCTS_URL = "http://localhost:3000/api/products";
