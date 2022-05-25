@@ -39,32 +39,41 @@ class Product extends React.Component{
                 <div className="col-lg-6 mb-4">						
                     <div className="card shadow mb-4">
                         <div className="card-header py-3">
-                            <h6 className="m-0 font-weight-bold text-gray-800">Product in Data Base</h6>
-                        </div>
+                            <h2 className="m-0 font-weight-bold text-gray-800">Products in Data Base</h2>
+                            <div>
+                                <h4>Total de productos: {this.state.total}</h4>
+                               </div> 
+                        
+                        
                         <div className="card-body">
                             <div className="row">
-                                <h4>Total de productos: {this.state.total}</h4>
-                                
+                               
+                               <div className='name'>
                                 <h4>Name</h4>
                                 {this.state.genres.map((genre,index)=>{
                                         return  <Genre  genre={genre.pdtName} key={index} />;
                                     })
                                 }
+                                </div>
+                                <div className='price'>
                                 <h4>Price</h4>
                                 {this.state.genres.map((genre,index)=>{
                                         return  <Genre  genre={genre.pdtPrice} key={index} />;
                                     })
                                 }
+                                </div>
+                                <div className='description'>
                                 <h4>Description</h4>
                                 {this.state.genres.map((genre,index)=>{
                                         return  <Genre  genre={genre.pdtDescription} key={index} />;
                                     })
                                 }
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-           
+           </div>
         
         )
     } 

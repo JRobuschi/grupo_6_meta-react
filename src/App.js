@@ -9,10 +9,13 @@ function App() {
     <div className="App">
       
       <header className="App-header">
-        <p>Hola</p>
+        <p>DASHBOARD META-SHOP / PRODUCTOS / USUARIOS</p>
       <Product />
       <Users />
       
+
+      <p>DASHBOARD@META-SHOP2022</p>
+
       </header>
     </div>
   );

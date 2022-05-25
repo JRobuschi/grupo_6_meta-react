@@ -38,33 +38,49 @@ class Users extends React.Component{
                 <div className="col-lg-6 mb-4">						
                     <div className="card shadow mb-4">
                         <div className="card-header py-3">
-                            <h6 className="m-0 font-weight-bold text-gray-800">User in Data Base</h6>
+                            <h2 className="m-0 font-weight-bold text-gray-800">Users in Data Base</h2>
+                        <div>
+                        <h4>Total de usuarios: {this.state.total}</h4>
                         </div>
+                        
                         <div className="card-body">
                             <div className="row">
-                                <h4>Total de usuarios: {this.state.total}</h4>
                                 
                                 
+                                <div className='name'>
                                 <h4>Id</h4>
                                 {this.state.user.map((genre,index)=>{
                                         return  <Genre  genre={genre.idUser} key={index} />;
                                     })
                                 }
+                                </div>
+                                <div className='price'>
                                 <h4>Nombre</h4>
                                 {this.state.user.map((genre,index)=>{
                                         return  <Genre  genre={genre.nombre} key={index} />;
                                     })
                                 }
+                                </div>
+                                <div className='description'>
                                 <h4>Apellido</h4>
                                 {this.state.user.map((genre,index)=>{
                                         return  <Genre  genre={genre.apellido} key={index} />;
                                     })
                                 }
+                                </div>
+                                <div className='price'>
+                                <h4>Email</h4>
+                                {this.state.user.map((genre,index)=>{
+                                        return  <Genre  genre={genre.email} key={index} />;
+                                    })
+                                }
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
                 </div>
-           
+           </div>
         
         )
     } 
