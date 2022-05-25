@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Product from './components/Product';
 import Products from './components/Products';
@@ -13,7 +12,7 @@ function App() {
         <p>Hola</p>
       <Product />
       <Users />
-        
+      
       </header>
     </div>
   );

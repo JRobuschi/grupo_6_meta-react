@@ -11,6 +11,7 @@ class Users extends React.Component{
         this.state = {
             user: [],
             loading: true,
+            total: ""
         };
     }
 
@@ -20,8 +21,8 @@ class Users extends React.Component{
       const respuestaParseada = await (respuestaDesdeServer.json());
       this.setState(
           {
-              user: respuestaParseada.data
-              
+              user: respuestaParseada.data,
+              total: respuestaParseada.total
           }
       )
 
@@ -44,6 +45,9 @@ class Users extends React.Component{
                         </div>
                         <div className="card-body">
                             <div className="row">
+                                <h4>Total: {this.state.total}</h4>
+                                
+                                
                                 <h4>Name</h4>
                                 {this.state.user.map((genre,index)=>{
                                         return  <Genre  genre={genre.idUser} key={index} />;
