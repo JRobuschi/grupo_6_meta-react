@@ -1,72 +1,73 @@
-import React, {Component} from "react";
-import PropTypes from 'prop-types';
-import {useState} from 'react';
+import React from 'react';
+//import { Component } from 'react/cjs/react.production.min';
+import Genre  from './Products.js';
 
-class Product extends Component {
-    constructor(props){
-        super(props);
-        this.state={
-            product: ""
-        }
+
+
+class Product extends React.Component{
+
+    constructor(){
+        super();
+        this.state = {
+            genres: [],
+            loading: true,
+        };
     }
 
-    apiCall(url, consecuencia) {
-        fetch(url)
-            .then( response => response.json())
-            .then( data => consecuencia(data))
-            .catch( error => console.log(error))
+    async componentDidMount() {
+        console.log('estoy1')
+        const respuestaDesdeServer = await fetch('http://localhost:3080/api/products');
+      const respuestaParseada = await (respuestaDesdeServer.json());
+      this.setState(
+          {
+              genres: respuestaParseada.data
+              
+          }
+      )
+
+    }
+  
+    componentWillUnmount(){
+        console.log("me estoy renderizando")
     }
 
-    
 
-    componentDidMount() {
-        console.log("Me monte!");
-        this.apiCall("http://localhost:3080/api/users", this.mostrarProduct)
+    render(){
        
-    }
-
-    mostrarProduct = (response) => {
-       console.log(response.data)
-
-        this.setState(
-            {
-            product: response.data[0].idUser,
-                    
-           // response.forEach(element => console.log(element))
-            
-    })
-}
-
-
+        return (
+       
+                
+                <div className="col-lg-6 mb-4">						
+                    <div className="card shadow mb-4">
+                        <div className="card-header py-3">
+                            <h6 className="m-0 font-weight-bold text-gray-800">Product in Data Base</h6>
+                        </div>
+                        <div className="card-body">
+                            <div className="row">
+                                <h4>Name</h4>
+                                {this.state.genres.map((genre,index)=>{
+                                        return  <Genre  genre={genre.pdtName} key={index} />;
+                                    })
+                                }
+                                <h4>Price</h4>
+                                {this.state.genres.map((genre,index)=>{
+                                        return  <Genre  genre={genre.pdtPrice} key={index} />;
+                                    })
+                                }
+                                <h4>Description</h4>
+                                {this.state.genres.map((genre,index)=>{
+                                        return  <Genre  genre={genre.pdtDescription} key={index} />;
+                                    })
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           
+        
+        )
+    } 
     
 
-    render() {
-        console.log("Estoy renderizado");
-
-        let contenido;
-
-        if (this.state.product === "") {
-            contenido = <p>Cargando1...</p>
-        } else {
-            console.log(this.state.product);
-            contenido = <p src={this.state.product}></p>
-        }
-
-
-        return(
-            <div>
-                {this.state.product}
-            </div>
-        );
-    }
-
-    componentDidUpdate() {
-        console.log("Me actualice!");
-    }
-
 }
-
-    
-
-
 export default Product;
