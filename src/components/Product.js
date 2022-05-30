@@ -55,13 +55,6 @@ class Product extends React.Component{
                                     })
                                 }
                                 </div>
-                                <div className='price'>
-                                <h4>Price</h4>
-                                {this.state.genres.map((genre,index)=>{
-                                        return  <Genre  genre={genre.pdtPrice} key={index} />;
-                                    })
-                                }
-                                </div>
                                 <div className='description'>
                                 <h4>Description</h4>
                                 {this.state.genres.map((genre,index)=>{
@@ -69,6 +62,14 @@ class Product extends React.Component{
                                     })
                                 }
                                 </div>
+                                <div className='price'>
+                                <h4>Price</h4>
+                                {this.state.genres.map((genre,index)=>{
+                                        return  <Genre  genre={genre.pdtPrice} key={index} />;
+                                    })
+                                }
+                                </div>
+                                
                             </div>
                         </div>
                     </div>

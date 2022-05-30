@@ -15,8 +15,7 @@ function App() {
         <p>DASHBOARD META-SHOP / PRODUCTOS / USUARIOS</p>
       <Product />
       <Users />
-      <LastProductInDb />
-      <ContentCard />
+      
       <p>DASHBOARD@META-SHOP2022</p>
 
       </header>
